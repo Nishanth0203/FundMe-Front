@@ -11,6 +11,7 @@ fundButton.onclick = fund
 balanceButton.onclick = getBalance
 
 async function connect() {
+  console.log("Metamask is Connected!")
   if (typeof window.ethereum !== "undefined") {
     try {
       await ethereum.request({ method: "eth_requestAccounts" })
