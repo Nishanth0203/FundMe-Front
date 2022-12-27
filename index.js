@@ -48,6 +48,7 @@ async function withdraw() {
 async function fund() {
   const ethAmount = document.getElementById("ethAmount").value
   console.log(`Funding with ${ethAmount}...`)
+  console.log("Funding with the amount")
   if (typeof window.ethereum !== "undefined") {
     const provider = new ethers.providers.Web3Provider(window.ethereum)
     const signer = provider.getSigner()
@@ -66,6 +67,7 @@ async function fund() {
 }
 
 async function getBalance() {
+  console.log("getting the balance")
   if (typeof window.ethereum !== "undefined") {
     const provider = new ethers.providers.Web3Provider(window.ethereum)
     try {
@@ -85,7 +87,7 @@ function listenForTransactionMine(transactionResponse, provider) {
         try {
             provider.once(transactionResponse.hash, (transactionReceipt) => {
                 console.log(
-                    `Completed with ${transactionReceipt.confirmations} confirmations. `
+                    `Completed with ${transactionReceipt.confirmations} confirmations.`
                 )
                 resolve()
             })
